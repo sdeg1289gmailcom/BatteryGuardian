@@ -122,6 +122,12 @@
       cursor: pointer;
     }
 
+    .play-badge {
+      width: 90px;
+      height: auto;
+      display: block;
+    }
+
     @media (max-width: 768px) {
       .screenshot-row {
         flex-direction: column;
@@ -143,11 +149,10 @@
   <h1>Battery ❤️ Guardian</h1>
   <p>Free, simple, and tiny app to monitor battery health & extend battery life!</p>
   <a class="download-btn" href="https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian" target="_blank">📲 Download on Google Play</a>
-  <div class="badge">
-    <a href="https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian" target="_blank">
-      <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="50"/>
-    </a>
-  </div>
+  <a href="https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian" target="_blank">
+    <img class="play-badge" alt="Get it on Google Play"
+         src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" />
+  </a>
 </header>
 
   <div class="container">
