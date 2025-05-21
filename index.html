@@ -48,7 +48,6 @@
       border-radius: 0;
     }  
 
-
     h1 {
       margin: 0.5em 0;
     }
@@ -57,22 +56,6 @@
       max-width: 960px;
       margin: auto;
       padding: 2em;
-    }
-
-    .download-btn {
-      display: inline-block;
-      background: var(--accent-color);
-      color: #fff;
-      padding: 1em 2em;
-      margin: 1em 0;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-
-    .download-btn:hover {
-      background: #2a8745;
     }
 
     .features, .how-it-works, .why-use, .app-description {
@@ -105,10 +88,6 @@
       border-radius: 10px;
     }
 
-    .badge {
-      margin-top: 1em;
-    }
-
     .dark-toggle {
       position: absolute;
       top: 1em;
@@ -122,13 +101,16 @@
       cursor: pointer;
     }
 
-.play-badge {
-  display: block;
-  max-width: 250px;
-  width: 100%;
-  height: auto;
-  margin: 1em auto; /* This centers it horizontally */
-}
+    .badge-container {
+      text-align: center;
+      margin-top: 1.5em;
+    }
+
+    .play-badge {
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+    }
 
     @media (max-width: 768px) {
       .screenshot-row {
@@ -136,18 +118,7 @@
         align-items: center;
       }
       .play-badge {
-         width: 70px;
-      }
-    }
-
-      
-.badge-container {
-  text-align: center;
-}
-      
-    
-      .screenshot-row img {
-        max-width: 100%;
+         max-width: 200px;
       }
     }
   </style>
@@ -160,7 +131,6 @@
   <img src="feature graphic v2.png" alt="Battery Guardian banner" />
   <h1>Battery ❤️ Guardian</h1>
   <p>Free, simple, and tiny app to monitor battery health & extend battery life!</p>
-  <a class="download-btn" href="https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian" target="_blank">📲 Download on Google Play</a>
   <div class="badge-container">
     <a href="https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian" target="_blank">
       <img class="play-badge" alt="Get it on Google Play"
@@ -193,10 +163,10 @@
       </ul>
     </section>
 
-   <div class="screenshot-row" data-aos="fade-up">
-  <img src="main - dark-right.png" alt="Main UI screenshot" class="screenshot">
-  <img src="charge meter - light- discharging-left.png" alt="Charge meter screenshot" class="screenshot">
-</div>
+    <div class="screenshot-row" data-aos="fade-up">
+      <img src="main - dark-right.png" alt="Main UI screenshot" class="screenshot">
+      <img src="charge meter - light- discharging-left.png" alt="Charge meter screenshot" class="screenshot">
+    </div>
 
     <section class="why-use" data-aos="fade-up">
       <h2>🔋 Why Use Battery Guardian?</h2>
@@ -220,20 +190,14 @@
       </ol>
     </section>
 
-    <div style="text-align: center;" data-aos="fade-up">
-      <a class="download-btn" href="https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian" target="_blank">📲 Get Battery Guardian Now</a>
-    </div>
-
   </div>
 
   <!-- Theme and AOS scripts -->
   <script>
-    // Set theme based on system preference
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const root = document.documentElement;
     if (prefersDark) root.setAttribute("data-theme", "dark");
 
-    // Manual toggle
     function toggleTheme() {
       const current = root.getAttribute("data-theme");
       root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
