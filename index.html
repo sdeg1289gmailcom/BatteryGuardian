@@ -165,9 +165,10 @@
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 177.78%; /* 9:16 aspect ratio for portrait video */
   height: 0;
 }
+
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -177,6 +178,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
+
 @media (max-width: 900px) {
   .two-column {
     flex-direction: column;
