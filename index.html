@@ -150,6 +150,42 @@
         width: 80%;
       }
     }
+
+    .two-column {
+  display: flex;
+  gap: 2em;
+  align-items: flex-start;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.column {
+  flex: 1;
+  min-width: 270px;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+@media (max-width: 900px) {
+  .two-column {
+    flex-direction: column;
+  }
+  .video-wrapper {
+    padding-bottom: 60%;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -208,16 +244,43 @@
       </ul>
     </section>
 
-    <section class="how-it-works" data-aos="fade-up">
-      <h2>💡 How It Works:</h2>
-      <ol>
-        <li>1️⃣ Install Battery Guardian</li>
-        <li>2️⃣ Allow necessary permissions</li>
-        <li>3️⃣ Get real-time battery monitoring</li>
-        <li>4️⃣ Set up smart alerts</li>
-        <li>5️⃣ Enjoy longer battery life!</li>
-      </ol>
+    <section class="two-column-section" id="video-section" data-aos="fade-up">
+      <div class="two-column">
+        <div class="column text-column">
+          <h2>🔋 Why Use Battery Guardian?</h2>
+          <ul>
+            <li>🔥 Prevent Overheating & Battery Wear</li>
+            <li>📊 Optimize Battery Performance</li>
+            <li>🔔 Get Smart Alerts</li>
+            <li>🔄 Extend Battery Lifespan</li>
+            <li>🚀 Improve Phone Efficiency</li>
+          </ul>
+          <h2>💡 How It Works:</h2>
+          <ol>
+            <li>1️⃣ Install Battery Guardian</li>
+            <li>2️⃣ Allow necessary permissions</li>
+            <li>3️⃣ Get real-time battery monitoring</li>
+            <li>4️⃣ Set up smart alerts</li>
+            <li>5️⃣ Enjoy longer battery life!</li>
+          </ol>
+        </div>
+        <div class="column video-column">
+          <div class="video-wrapper">
+            <iframe
+              id="yt-video"
+              width="100%"
+              height="315"
+              src=""
+              title="Battery Guardian Demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </section>
+
 
     <a class="download-button" href="https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian" target="_blank">
       📲 Download Battery Guardian Now
