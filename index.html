@@ -266,16 +266,7 @@
         </div>
         <div class="column video-column">
           <div class="video-wrapper">
-            <iframe
-              id="yt-video"
-              width="100%"
-              height="315"
-              src=""
-              title="Battery Guardian Demo"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <div id="player"></div>
           </div>
         </div>
       </div>
@@ -308,30 +299,45 @@
     });
   </script>
 
-  <script>
-  // Autoplay YouTube video when section is in view
-  function loadYouTubeVideo() {
-    const iframe = document.getElementById('yt-video');
-    if (iframe && !iframe.src) {
-      iframe.src = "https://www.youtube.com/embed/_2oHCyepF24?autoplay=1&mute=1";
-    }
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '315',
+      width: '100%',
+      videoId: '_2oHCyepF24',
+      playerVars: {
+        autoplay: 1,
+        mute: 1,
+        playsinline: 1,
+      },
+      events: {
+        'onReady': (event) => event.target.playVideo()
+      }
+    });
   }
 
-  function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top < window.innerHeight &&
-      rect.bottom > 0
-    );
+  // Optional: load player only when section is visible
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
   }
 
-  let videoPlayed = false;
-  window.addEventListener('scroll', function() {
-    if (videoPlayed) return;
+  let videoLoaded = false;
+  window.addEventListener('scroll', () => {
+    if (videoLoaded) return;
     const section = document.getElementById('video-section');
     if (isInViewport(section)) {
-      loadYouTubeVideo();
-      videoPlayed = true;
+      if (typeof YT === 'undefined' || !YT.Player) {
+        // API script not loaded yet
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+      } else {
+        onYouTubeIframeAPIReady();
+      }
+      videoLoaded = true;
     }
   });
 </script>
