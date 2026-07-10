@@ -181,14 +181,34 @@
         </div>
     </main>
 
-    <script>
-        let currentSlide = 0;
-        function moveSlide(direction) {
-            const track = document.getElementById('carouselTrack');
-            const totalSlides = 8;
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-    </script>
+<script>
+    let currentSlide = 0;
+    const totalSlides = 9;
+    let autoSlideInterval;
+
+    function moveSlide(direction) {
+        const track = document.getElementById('carouselTrack');
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Function to start the automatic slideshow
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            moveSlide(1);
+        }, 4000); // 4000ms = 4 seconds per slide
+    }
+
+    // Function to handle manual user clicks and reset the timer
+    function manualMove(direction) {
+        clearInterval(autoSlideInterval); // Stop timer so it doesn't jump instantly after a click
+        moveSlide(direction);
+        startAutoSlide(); // Restart the timer
+    }
+
+    // Initialize the auto-slide on page load
+    window.onload = startAutoSlide;
+</script>
+
 </body>
 </html>
