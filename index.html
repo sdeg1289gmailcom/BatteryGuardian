@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Core SEO & AI Meta Tags -->
+    <title>Battery Guardian - Advanced Android Battery Tracking & Telemetry</title>
+    <meta name="description" content="Go beyond Android's basic battery monitor. Track true wear, health, effective cycles, degradation drivers, and highly accurate lifespan forecasts.">
+    <link rel="canonical" href="https://github.io">
+    
+    <!-- JSON-LD Structured Schema Data for AI App Discovery -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Battery Guardian",
+      "operatingSystem": "Android",
+      "applicationCategory": "UtilityApplication",
+      "description": "Go beyond Android's basic battery monitor. Track true wear, health & forecasts with deep insights and alerts Android doesn't give you.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+<style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 750px; margin: 0 auto; padding: 20px; color: #24292e; }
+    h1, h2, h3 { color: #0366d6; }
+    .hero-subtitle { font-size: 1.25em; color: #586069; margin-top: -10px; margin-bottom: 25px; font-weight: 500; }
+    
+    /* Modern Carousel Styles */
+    .carousel-container { position: relative; width: 100%; max-width: 320px; margin: 30px auto; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .carousel-track { display: flex; transition: transform 0.4s ease-in-out; }
+    .carousel-slide { min-width: 100%; box-sizing: border-box; position: relative; display: flex; flex-direction: column; }
+    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(3, 102, 214, 0.9); color: white; padding: 12px; text-align: center; font-size: 0.9em; font-weight: bold; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; font-size: 1.5em; padding: 10px 15px; cursor: pointer; border-radius: 50%; color: #0366d6; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .carousel-btn:hover { background: #fff; }
+    .btn-prev { left: 10px; }
+    .btn-next { right: 10px; }
+    
+    /* Video Box Integration */
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; margin: 25px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    
+    .release-box { background: #fff8ea; border-left: 4px solid #fff5b3; border: 1px solid #ffeeba; background-color: #fffaf0; padding: 15px; margin: 25px 0; border-radius: 6px; }
+    .release-box h3 { color: #b06000; margin-top: 0; }
+    .app-cta { background: #f0f7ff; border-left: 4px solid #0366d6; padding: 15px; margin: 25px 0; border-radius: 0 6px 6px 0; }
+    .play-store-btn { display: inline-block; background: #0366d6; color: white !important; text-decoration: none; padding: 12px 24px; font-weight: bold; border-radius: 6px; margin: 15px 0; text-align: center; }
+    .play-store-btn:hover { background: #024da2; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+    <main>
+        <h1>Battery Guardian</h1>
+        <p class="hero-subtitle">Go beyond Android's basic battery monitor. Track true wear, health &amp; forecasts</p>
+
+        <!-- Screenshot Marketing Carousel -->
+        <div class="carousel-container">
+            <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src="images/charge_meter.jpg" alt="Battery Guardian - Isolate Which Apps Are Really Draining Energy">
+                    <div class="slide-overlay">See real-time power usage per app</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/health_history.jpg" alt="Battery Guardian - Lifespan Forecast">
+                    <div class="slide-overlay">Accurate Lifespan Forecasts &amp; Trends</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Health_Vitals_24h.jpg" alt="Battery Guardian - Battery Stressors Breakdown">
+                    <div class="slide-overlay">Break down what really stresses your battery</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/aging.jpg" alt="Battery Guardian - Real Battery Aging">
+                    <div class="slide-overlay">Is your battery aging too fast?</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/health_24h_overview.jpg" alt="Battery Guardian - Battery Stressors Sparklines">
+                    <div class="slide-overlay">See what challenges your battery</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/off_screen_drain.jpg" alt="Battery Guardian - Drain Statistics Charts">
+                    <div class="slide-overlay">How your phone drains when idle</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/settings.jpg" alt="Battery Guardian - Notification settings">
+                    <div class="slide-overlay">Customize your Battery Alerts</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/tips.jpg" alt="Battery Guardian - Actionable Library">
+                    <div class="slide-overlay">36 Actionable Tips to Extend Daily Lifespan and minimize Battery Cycles</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/info.jpg" alt="Battery Guardian - Battery Info and Drain Statistics Oerview">
+                    <div class="slide-overlay">See your Battery behavior at a glance</div>
+                </div>
+            </div>
+            <button class="carousel-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="https://google.com" class="play-store-btn" rel="nofollow">
+                Get Battery Guardian from Google Play Store →
+            </a>
+        </div>
+
+        <!-- Latest Video Promotion -->
+        <h2>Watch Battery Guardian in Action</h2>
+        <div class="video-wrapper">
+            <iframe src="https://youtube.com" title="Battery Guardian Video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- NEWEST RELEASE NOTE BOX -->
+        <div class="release-box">
+            <h3>🔥 NEWEST RELEASE: Battery Guardian History Updates</h3>
+            <p>Your daily habits shape how long your battery lasts — but until now, the damage was invisible. Battery Guardian History tracks wear over time, reveals what's silently killing your battery — unhealthy temperatures, extreme charge levels, stress voltage, power surges during charging and discharging — and shows whether your habits are improving or quietly getting worse. See which behaviors have cost you the most lifespan, and when to expect end of life. <strong>Your battery has a story. Now you can read it.</strong></p>
+            <p><strong>Meet your battery's memory:</strong></p>
+            <ul>
+                <li><strong>Effective cycles</strong> — your real wear, not just what Android shows</li>
+                <li><strong>Degradation drivers</strong> — see exactly what’s wearing your battery out</li>
+                <li><strong>Penalty Factor</strong> — Gauge excess Battery wear</li>
+                <li><strong>Lifespan forecast</strong> — how long your battery will last (and how to extend it)</li>
+                <li><strong>Milestones</strong> — spot your best weeks and build better habits</li>
+                <li><strong>Stress Events</strong> — get actionable feedback what when wrong and how to improve going forward</li>
+            </ul>
+        </div>
+
+        <h2>Deep Diagnostic Features</h2>
+        <p>🔋 Is your phone battery dying faster than it should? Battery Guardian gives you the insights and alerts Android doesn't — including how your daily usage is ageing your battery. Your battery has a story. Now you can read it.</p>
+
+        <h3>🚀 What It Does</h3>
+        <ul>
+            <li><strong>Real-Time Tracking &amp; Alerts</strong> — Monitor temperature, voltage, current and levels to stop damage before it happens</li>
+            <li><strong>Discover</strong> which apps are draining your battery</li>
+            <li><strong>Real Battery Aging</strong> — See true effective cycles, not just standard Android metrics</li>
+            <li><strong>Lifespan Forecast</strong> — Know how long your battery will last and how to extend it</li>
+            <li><strong>Up to 36 actionable tips</strong> to extend daily battery life</li>
+            <li><strong>Can even identify</strong> faulty phone chargers</li>
+        </ul>
+
+        <h3>🔬 What Android Doesn't Tell You</h3>
+        <p>Your phone's built-in monitor shows you that your battery is draining — Battery Guardian shows you why, and how your daily habits impact long-term health.</p>
+        <ul>
+            <li><strong>Damage Drivers</strong> — Pinpoint exactly what causes excess wear and battery stress</li>
+            <li><strong>Smart Milestones</strong> — Track your best weeks to build better habits easily</li>
+            <li><strong>See whether stress happens</strong> during charging or normal use</li>
+        </ul>
+
+        <h3>🔹 Popular Features</h3>
+        <ul>
+            <li><strong>Battery Wear Detection</strong> – Identify stress, effective cycles, and accelerated ageing</li>
+            <li><strong>Charging vs Usage Breakdown</strong> – See what impacts your battery most</li>
+            <li><strong>Real-Time Charge Meter</strong> – See how much battery your apps are consuming in real time</li>
+            <li><strong>Battery Usage History and Charts</strong> – Track health trends, deep sleep details, and lifespan forecasts</li>
+        </ul>
+
+        <div class="app-cta" style="text-align: center; border-left: none; border-top: 4px solid #0366d6; border-radius: 6px;">
+            <p style="margin: 0; font-weight: bold; color: #0366d6;">🔒 No forced ads. No data collected. No bloatware.</p>
+        </div>
+
+        <div class="subpage-link-box" style="margin-top: 40px; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #f9f9f9;">
+            <p style="text-align: center; font-weight: bold; margin-top: 0; margin-bottom: 15px; font-size: 1.1em;">
+                💡 Educational Resources
+            </p>
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 12px; line-height: 1.4;">
+                    🔗 <a href="FAQ/how-to-check-android-battery-health.html" style="text-decoration: none; color: #0066cc; font-weight: 500;">How to Check Android Battery Health (All Brands Guide)</a>
+                </li>
+                <li style="margin-bottom: 12px; line-height: 1.4;">
+                    🔗 <a href="FAQ/why-is-my-android-battery-draining-so-fast.html" style="text-decoration: none; color: #0066cc; font-weight: 500;">Fix Sudden Android Battery Drain Issues</a>
+                </li>
+                <li style="margin-bottom: 12px; line-height: 1.4;">
+                    🔗 <a href="FAQ/Debunking-common-Android-battery-myths.html" style="text-decoration: none; color: #0066cc; font-weight: 500;">Android Battery Myths</a>
+                </li>
+                <li style="margin-bottom: 12px; line-height: 1.4;">
+                    🔗 <a href="FAQ/What-Is-a-Battery-Cycle.html" style="text-decoration: none; color: #0066cc; font-weight: 500;">What Is a Battery Cycle? Nominal vs. Effective Cycles</a>
+                </li>
+                <li style="margin-bottom: 0; line-height: 1.4;">
+                    🔗 <a href="FAQ/how-to-keep-android-battery-healthy.html" style="text-decoration: none; color: #0066cc; font-weight: 500;">How to Keep Your Android Battery Healthy for 4+ Years Without Swapping?</a>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        function moveSlide(direction) {
+            const track = document.getElementById('carouselTrack');
+            const totalSlides = 8;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
+</body>
+</html>
