@@ -30,6 +30,7 @@
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 750px; margin: 0 auto; padding: 20px; color: #24292e; }
     h1, h2, h3 { color: #0366d6; }
     h1 { text-align: center; margin-bottom: 5px; }
+    h2 { text-align: center; margin-top: 35px; }
     .hero-subtitle { font-size: 1.25em; color: #586069; margin-top: -10px; margin-bottom: 25px; font-weight: 500; }
     
     /* Modern Carousel Styles */
@@ -40,6 +41,22 @@
     .slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(3, 102, 214, 0.9); color: white; padding: 12px; text-align: center; font-size: 0.9em; font-weight: bold; }
     .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; font-size: 1.5em; padding: 10px 15px; cursor: pointer; border-radius: 50%; color: #0366d6; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
     .carousel-btn:hover { background: #fff; }
+    /* Spacing alignment below the slider container */
+    .carousel-dots { text-align: center; margin-bottom: 25px; }
+    /* Style for individual inactive dots */
+    .dot { 
+        display: inline-block; 
+        width: 10px; 
+        height: 10px; 
+        margin: 0 5px; 
+        background-color: #bbb; 
+        border-radius: 50%; 
+        cursor: pointer; 
+        transition: background-color 0.3s ease; 
+    }
+    
+    /* Style for the active slide dot (matches your classic blue brand color) */
+    .dot.active { background-color: #0366d6; }
     .btn-prev { left: 10px; }
     .btn-next { right: 10px; }
     
@@ -64,7 +81,7 @@
 
         <!-- Screenshot Marketing Carousel -->
         <div class="carousel-container">
-            <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn btn-prev" onclick="manualMove(-1)">&#10094;</button>
             <div class="carousel-track" id="carouselTrack">
                 <div class="carousel-slide">
                     <img src="images/charge_meter.jpg" alt="Battery Guardian - Isolate Which Apps Are Really Draining Energy">
@@ -94,7 +111,20 @@
                     <img src="images/info.jpg" alt="Battery Guardian - Battery Info and Drain Statistics Oerview">
                 </div>
             </div>
-            <button class="carousel-btn btn-next" onclick="moveSlide(1)">&#10095;</button>
+            <button class="carousel-btn btn-next" onclick="manualMove(1)">&#10095;</button>
+        </div>
+
+        <div class="carousel-dots">
+            <!-- Each dot calls a specific index function when clicked -->
+            <span class="dot active" onclick="clickDot(0)"></span>
+            <span class="dot" onclick="clickDot(1)"></span>
+            <span class="dot" onclick="clickDot(2)"></span>
+            <span class="dot" onclick="clickDot(3)"></span>
+            <span class="dot" onclick="clickDot(4)"></span>
+            <span class="dot" onclick="clickDot(5)"></span>
+            <span class="dot" onclick="clickDot(6)"></span>
+            <span class="dot" onclick="clickDot(7)"></span>
+            <span class="dot" onclick="clickDot(8)"></span>
         </div>
 
         <!-- Latest Video Promotion -->
@@ -181,34 +211,52 @@
         </div>
     </main>
 
-<script>
-    let currentSlide = 0;
-    const totalSlides = 9;
-    let autoSlideInterval;
+ <script>
+        let currentSlide = 0;
+        const totalSlides = 9;
+        let autoSlideInterval;
 
-    function moveSlide(direction) {
-        const track = document.getElementById('carouselTrack');
-        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
 
-    // Function to start the automatic slideshow
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            moveSlide(1);
-        }, 4000); // 4000ms = 4 seconds per slide
-    }
+        function moveSlide(direction) {
+            const track = document.getElementById('carouselTrack');
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
 
-    // Function to handle manual user clicks and reset the timer
-    function manualMove(direction) {
-        clearInterval(autoSlideInterval); // Stop timer so it doesn't jump instantly after a click
-        moveSlide(direction);
-        startAutoSlide(); // Restart the timer
-    }
+        function clickDot(index) {
+            clearInterval(autoSlideInterval);
+            const track = document.getElementById('carouselTrack');
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+            startAutoSlide();
+        }
 
-    // Initialize the auto-slide on page load
-    window.onload = startAutoSlide;
-</script>
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                moveSlide(1);
+            }, 4000);
+        }
+
+        function manualMove(direction) {
+            clearInterval(autoSlideInterval);
+            moveSlide(direction);
+            startAutoSlide();
+        }
+
+        window.onload = startAutoSlide;
+    </script>
 
 </body>
 </html>
