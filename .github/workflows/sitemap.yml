@@ -1,0 +1,29 @@
+name: Generate XML Sitemap Automatically
+
+on:
+  push:
+    branches:
+      - main  # Change this to 'master' if your default repository branch uses master
+
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+    name: Generate a sitemap
+    steps:
+    - name: Checkout the repository code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Required to accurately analyze file modification history
+
+    - name: Run Sitemap Generator Tool
+      uses: cicirello/generate-sitemap@v1
+      with:
+        base-url-path: https://sdeg1289gmailcom.github.io/BatteryGuardian/index.html
+
+    - name: Commit and Push the generated sitemap file
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@://github.com"
+        git add sitemap.xml
+        git diff-index --quiet HEAD || git commit -m "Automated sitemap update"
+        git push
