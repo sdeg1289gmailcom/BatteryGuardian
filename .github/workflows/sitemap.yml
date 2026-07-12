@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main  # Change this to 'master' if your default repository branch uses master
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   sitemap_job:
@@ -21,6 +25,8 @@ jobs:
         base-url-path: https://sdeg1289gmailcom.github.io/BatteryGuardian/index.html
 
     - name: Commit and Push the generated sitemap file
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@://github.com"
