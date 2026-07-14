@@ -162,7 +162,7 @@
         
         <p>In the real world, phones sit in hot cars, charge inside thick protective cases, and run intensive tasks while plugged into power. This environmental variance leads to a wide distribution of actual lifespans before severe degradation sets in:</p>
 
-        <div class="bell-curve-container" style="margin: 30px auto; max-width: 650px; padding: 15px; border: 1px solid #e1e4e8; border-radius: 6px; background-color: #fafbfc; text-align: center;">
+ <div class="bell-curve-container" style="margin: 30px auto; max-width: 650px; padding: 15px; border: 1px solid #e1e4e8; border-radius: 6px; background-color: #fafbfc; text-align: center;">
     <p style="font-weight: bold; margin-top: 0; margin-bottom: 15px; color: #24292e;">Real-World Lifespan Cycle Distribution</p>
     
     <svg viewBox="0 0 600 220" style="width: 100%; height: auto; display: block; overflow: visible;">
@@ -199,17 +199,18 @@
         <text x="400" y="150" font-size="11" font-weight="bold" fill="#319795" text-anchor="middle">20-30%</text>
         <text x="505" y="170" font-size="11" font-weight="bold" fill="#38a169" text-anchor="middle">5-15%</text>
 
-        <!-- Cycle Range Text Labels along the bottom axis -->
-        <text x="95" y="200" font-size="11" fill="#4a5568" text-anchor="middle">&lt;400</text>
-        <text x="200" y="200" font-size="11" fill="#4a5568" text-anchor="middle">400-600</text>
-        <text x="300" y="200" font-size="11" fill="#4a5568" text-anchor="middle">600-900</text>
-        <text x="400" y="200" font-size="11" fill="#4a5568" text-anchor="middle">900-1200</text>
+        <!-- Cycle Range Text Labels along the bottom axis matched exactly to table limits -->
+        <text x="95" y="200" font-size="11" fill="#4a5568" text-anchor="middle">&lt;300</text>
+        <text x="200" y="200" font-size="11" fill="#4a5568" text-anchor="middle">300-500</text>
+        <text x="300" y="200" font-size="11" fill="#4a5568" text-anchor="middle">500-800</text>
+        <text x="400" y="200" font-size="11" fill="#4a5568" text-anchor="middle">800-1200</text>
         <text x="505" y="200" font-size="11" fill="#4a5568" text-anchor="middle">&gt;1200</text>
         
         <!-- Axis Metric Label -->
         <text x="300" y="215" font-size="10" font-style="italic" fill="#718096" text-anchor="middle">Cumulative Effective Cycles Expended</text>
     </svg>
 </div>
+
 
         <table>
             <thead>
@@ -223,6 +224,7 @@
                 <tr>
                     <td><strong>&lt; 300 Effective Cycles</strong></td>
                     <td>5% – 10%</td>
+                    <td>Accelerated failure window. Represents cells that degrade prematurely due to manufacturing anomalies, severe physical drop impacts, or constant exposure to intense thermal environments (like a device left locked inside a hot car dashboard running GPS navigation).</td>
                 </tr>
                 <tr>
                     <td><strong>300 to 500 Effective Cycles</strong></td>
