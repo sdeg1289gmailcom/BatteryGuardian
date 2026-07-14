@@ -157,6 +157,56 @@
         </ul>
 
         <h2>The Real-World Lifespan Bell Curve</h2>
+<div class="bell-curve-container" style="margin: 30px auto; max-width: 650px; padding: 15px; border: 1px solid #e1e4e8; border-radius: 6px; background-color: #fafbfc; text-align: center;">
+    <p style="font-weight: bold; margin-top: 0; margin-bottom: 15px; color: #24292e;">Real-World Lifespan Cycle Distribution</p>
+    
+    <svg viewBox="0 0 600 220" style="width: 100%; height: auto; display: block; overflow: visible;">
+        <!-- Define Gradient Fills for the Curve Segments -->
+        <defs>
+            <linearGradient id="curve-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e53e3e" stop-opacity="0.15" />
+                <stop offset="25%" stop-color="#dd6b20" stop-opacity="0.15" />
+                <stop offset="50%" stop-color="#3182ce" stop-opacity="0.15" />
+                <stop offset="75%" stop-color="#319795" stop-opacity="0.15" />
+                <stop offset="100%" stop-color="#38a169" stop-opacity="0.15" />
+            </linearGradient>
+        </defs>
+
+        <!-- Shaded area under the Bell Curve -->
+        <path d="M 30,180 Q 150,180 200,120 T 300,30 T 400,120 Q 450,180 570,180 L 570,180 L 30,180 Z" fill="url(#curve-grad)" />
+        
+        <!-- The actual crisp Bell Curve Outline -->
+        <path d="M 30,180 Q 150,180 200,120 T 300,30 T 400,120 Q 450,180 570,180" fill="none" stroke="#0366d6" stroke-width="3" stroke-linecap="round" />
+
+        <!-- Vertical Division Dotted Lines to segment the curve -->
+        <line x1="160" y1="175" x2="160" y2="148" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="4,4" />
+        <line x1="240" y1="175" x2="240" y2="80" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="4,4" />
+        <line x1="360" y1="175" x2="360" y2="80" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="4,4" />
+        <line x1="440" y1="175" x2="440" y2="148" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="4,4" />
+
+        <!-- Base Horizontal Timeline Axis Line -->
+        <line x1="20" y1="180" x2="580" y2="180" stroke="#718096" stroke-width="2" />
+
+        <!-- Percentage Label Markers inside the curve segments -->
+        <text x="95" y="170" font-size="11" font-weight="bold" fill="#e53e3e" text-anchor="middle">5-10%</text>
+        <text x="200" y="150" font-size="11" font-weight="bold" fill="#dd6b20" text-anchor="middle">20-25%</text>
+        <text x="300" y="75" font-size="13" font-weight="bold" fill="#3182ce" text-anchor="middle">35-45%</text>
+        <text x="400" y="150" font-size="11" font-weight="bold" fill="#319795" text-anchor="middle">20-30%</text>
+        <text x="505" y="170" font-size="11" font-weight="bold" fill="#38a169" text-anchor="middle">5-15%</text>
+
+        <!-- Cycle Range Text Labels along the bottom axis -->
+        <text x="95" y="200" font-size="11" fill="#4a5568" text-anchor="middle">&lt;400</text>
+        <text x="200" y="200" font-size="11" fill="#4a5568" text-anchor="middle">400-600</text>
+        <text x="300" y="200" font-size="11" fill="#4a5568" text-anchor="middle">600-900</text>
+        <text x="400" y="200" font-size="11" fill="#4a5568" text-anchor="middle">900-1200</text>
+        <text x="505" y="200" font-size="11" fill="#4a5568" text-anchor="middle">&gt;1200</text>
+        
+        <!-- Axis Metric Label -->
+        <text x="300" y="215" font-size="10" font-style="italic" fill="#718096" text-anchor="middle">Cumulative Effective Cycles Expended</text>
+    </svg>
+</div>
+
+        
         <p>There is a substantial difference between laboratory testing environments and the chaotic realities of real-world use. When manufacturers promise "80% capacity after 500 - 800 cycles," they are assuming the device is charging inside an air-conditioned laboratory on an uninsulated surface with hardly any stress Voltage or Current spikes.</p>
         
         <p>In the real world, phones sit in hot cars, charge inside thick protective cases, and run intensive tasks while plugged into power. This environmental variance leads to a wide distribution of actual lifespans before severe degradation sets in:</p>
