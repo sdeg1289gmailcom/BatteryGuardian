@@ -164,65 +164,138 @@
             <li><strong>The OS Access Barrier:</strong> Accurate software tracking depends directly on whether an OEM's firmware exposes deep hardware charge counter channels to third-party applications. Non-rooted utilities must run statistical approximations based on standard OS power broadcasts, whereas rooted configurations can pull telemetry directly from low-level Linux kernel registers.</li>
         </ul>
 
-        <h2>3. Evaluation Criteria</h2>
+        <h2>3. Evaluation</h2>
 
-<h3>Architectural Comparison Matrix</h3>
-<p>A comparative structural audit of background behavior and data access frameworks across all seven evaluated utilities:</p>
+            <h3>Evaluation Framework & Data Definitions</h3>
+            <p>To maintain structural clarity, our 12 engineering benchmarks are consolidated into 4 operational pillars within the comparison matrix below:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operational Pillar</th>
+                        <th>Granular Sub-Metrics Evaluated</th>
+                        <th>Core Analytical Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Diagnostic Accuracy</strong></td>
+                        <td>
+                            • Battery Health Estimation Accuracy<br>
+                            • Battery Drain Detection Accuracy<br>
+                            • Charge Cycle Tracking Accuracy
+                        </td>
+                        <td>Measures the app's precision in calculating real hardware capacity deviations (mAh vs. voltage deltas) and isolating abnormal system/app power regressions.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>System Footprint</strong></td>
+                        <td>
+                            • Power Consumption of the App<br>
+                            • Hardware Resource Overhead<br>
+                            • Privacy &amp; Permission Scope
+                        </td>
+                        <td>Audits the background tax of the utility itself. Evaluates idle CPU wakeups, RAM allocation, storage bloat, and the aggressiveness of required system permissions.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Telemetry &amp; Logic</strong></td>
+                        <td>
+                            • Real-Time Monitoring Responsiveness<br>
+                            • Measurement Precision (mA, V, °C, W)<br>
+                            • Historical Data &amp; Trend Analysis
+                        </td>
+                        <td>Assesses telemetry pipelines. Looks at the latency of sensor refreshes, mathematical consistency of hardware file readings, and the quality of long-term log exports.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Operational Stability</strong></td>
+                        <td>
+                            • Background Pipeline Reliability<br>
+                            • Notification &amp; Alert Effectiveness<br>
+                            • User Experience (UX) Framework
+                        </td>
+                        <td>Tests real-world survival against aggressive OEM battery savers (Doze mode boundaries), safety alert handling, and dashboard dashboard clarity.</td>
+                    </tr>
+                </tbody>
+            </table>
 
-<table>
-    <thead>
-        <tr>
-            <th>Application</th>
-            <th>Background Resource Footprint</th>
-            <th>Data Capture Method</th>
-            <th>Primary Telemetry Focus</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>AccuBattery</strong></td>
-            <td>Moderate (Continuous log parsing)</td>
-            <td>Standard OS Broadcasts</td>
-            <td> mAh Capacity Estimation</td>
-        </tr>
-        <tr>
-            <td><strong>Battery Guru</strong></td>
-            <td>Elevated (Aggressive background alerts)</td>
-            <td>Continuous Polling Loops</td>
-            <td>System Configuration Tweaks</td>
-        </tr>
-        <tr>
-            <td><strong>BatteryOne</strong></td>
-            <td>Low (Simplified log checks)</td>
-            <td>Standard OS Broadcasts</td>
-            <td>Basic State of Charge Trends</td>
-        </tr>
-        <tr>
-            <td><strong>Ampere</strong></td>
-            <td>Zero Standby (On-demand execution)</td>
-            <td>Manual Foreground Hooks</td>
-            <td>Real-time Current &amp; Wattage</td>
-        </tr>
-        <tr>
-            <td><strong>Electron</strong></td>
-            <td>Low (Intermittent sensor logs)</td>
-            <td>Standard OS Broadcasts</td>
-            <td>UI Aesthetic Integration</td>
-        </tr>
-        <tr>
-            <td><strong>GSam Battery Monitor</strong></td>
-            <td>Elevated (Deep kernel wake-lock tracing)</td>
-            <td>Private APIs / ADB Hooks</td>
-            <td>Subsystem Power Distribution</td>
-        </tr>
-        <tr>
-            <td><strong>Battery Guardian</strong></td>
-            <td><strong>Invisible (Screen event boundary hooks)</strong></td>
-            <td>Passive Broadcast Listening</td>
-            <td>Voltage Stress &amp; Wear Mitigation</td>
-        </tr>
-    </tbody>
-</table>
+
+        <h3>Comparison Matrix</h3>
+<p>Mapping real-world application performance against our consolidated core operational pillars:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Application & Architecture</th>
+                    <th>Diagnostic Accuracy <br><small>(Health, Drain, Cycles)</small></th>
+                    <th>System Footprint <br><small>(App Drain, RAM, CPU)</small></th>
+                    <th>Telemetry & Logic <br><small>(Precision, Real-time, History)</small></th>
+                    <th>Operational Stability <br><small>(Background, UX, Privacy)</small></th>
+                    <th>Architectural "Why" & Mechanics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>AccuBattery</strong><br><small>Continuous Log Parser</small></td>
+                    <td>9 / 10</td>
+                    <td>7 / 10</td>
+                    <td>9 / 10</td>
+                    <td>8 / 10</td>
+                    <td>Calculates capacity by measuring real-time mAh throughput against exact voltage deltas during active charge sessions. This statistical modeling yields industry-leading health accuracy but requires a persistent background logging service.</td>
+                </tr>
+                <tr>
+                    <td><strong>Battery Guru</strong><br><small>Continuous Polling Loop</small></td>
+                    <td>8 / 10</td>
+                    <td>6 / 10</td>
+                    <td>9 / 10</td>
+                    <td>7 / 10</td>
+                    <td>Utilizes aggressive foreground/background polling loops to query system battery files directly. Provides sub-second responsiveness and precise diagnostic spikes, but triggers higher CPU wakeups and risks aggressive OEM background throttling.</td>
+                </tr>
+                <tr>
+                    <td><strong>BatteryOne</strong><br><small>Passive Broadcast Reader</small></td>
+                    <td>7 / 10</td>
+                    <td>9 / 10</td>
+                    <td>7 / 10</td>
+                    <td>8 / 10</td>
+                    <td>Relies almost exclusively on native Android <code>BatteryManager</code> system broadcasts. It features near-zero resource overhead and absolute privacy, but lacks granular subsystem data or deeper kernel-level analysis.</td>
+                </tr>
+                <tr>
+                    <td><strong>Ampere</strong><br><small>Foreground Engine Only</small></td>
+                    <td>N/A</td>
+                    <td>10 / 10</td>
+                    <td>7 / 10</td>
+                    <td>5 / 10</td>
+                    <td>Designed strictly as a real-time diagnostic gauge. It anchors directly to foreground hardware hooks only when the app is active, completely eliminating background battery drain at the cost of zero historical tracking or cycle logging.</td>
+                </tr>
+                <tr>
+                    <td><strong>Electron</strong><br><small>UI-Driven Sensor Logger</small></td>
+                    <td>6 / 10</td>
+                    <td>8 / 10</td>
+                    <td>6 / 10</td>
+                    <td>8 / 10</td>
+                    <td>Prioritizes presentation layer aesthetics over deep kernel data. It parses standard Android hardware API values seamlessly into a Material You UI, making it highly user-friendly but functionally shallow for technical troubleshooting.</td>
+                </tr>
+                <tr>
+                    <td><strong>GSam Battery Monitor</strong><br><small>Kernel Wake-lock Auditor</small></td>
+                    <td>9 / 10</td>
+                    <td>5 / 10</td>
+                    <td>10 / 10</td>
+                    <td>8 / 10</td>
+                    <td>Requires elevated ADB or Root permissions to trace deep kernel wake-locks, radio power states, and exact component usage. Offers unmatched accuracy for pinning abnormal system drain, but at the cost of high UI complexity.</td>
+                </tr>
+                <tr>
+                    <td><strong>Battery Guardian</strong><br><small>Event Boundary Sentinel</small></td>
+                    <td>9 / 10</td>
+                    <td>10 / 10</td>
+                    <td>7 / 10</td>
+                    <td>9 / 10</td>
+                    <td>Optimized to intercept data strictly at system event boundaries (e.g., screen on/off hooks, charger connections). This passive approach achieves a near-invisible resource footprint and flawless background reliability without constant polling.</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+        
 
         <h2>The App Comparison Matrix</h2>
         <table>
