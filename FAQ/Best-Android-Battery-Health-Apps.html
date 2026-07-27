@@ -164,7 +164,67 @@
             <li><strong>The OS Access Barrier:</strong> Accurate software tracking depends directly on whether an OEM's firmware exposes deep hardware charge counter channels to third-party applications. Non-rooted utilities must run statistical approximations based on standard OS power broadcasts, whereas rooted configurations can pull telemetry directly from low-level Linux kernel registers.</li>
         </ul>
 
-        <h2>3. Evaluation Criteria & The App Comparison Matrix</h2>
+        <h2>3. Evaluation Criteria</h2>
+
+<h3>Architectural Comparison Matrix</h3>
+<p>A comparative structural audit of background behavior and data access frameworks across all seven evaluated utilities:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Application</th>
+            <th>Background Resource Footprint</th>
+            <th>Data Capture Method</th>
+            <th>Primary Telemetry Focus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>AccuBattery</strong></td>
+            <td>Moderate (Continuous log parsing)</td>
+            <td>Standard OS Broadcasts</td>
+            <td> mAh Capacity Estimation</td>
+        </tr>
+        <tr>
+            <td><strong>Battery Guru</strong></td>
+            <td>Elevated (Aggressive background alerts)</td>
+            <td>Continuous Polling Loops</td>
+            <td>System Configuration Tweaks</td>
+        </tr>
+        <tr>
+            <td><strong>BatteryOne</strong></td>
+            <td>Low (Simplified log checks)</td>
+            <td>Standard OS Broadcasts</td>
+            <td>Basic State of Charge Trends</td>
+        </tr>
+        <tr>
+            <td><strong>Ampere</strong></td>
+            <td>Zero Standby (On-demand execution)</td>
+            <td>Manual Foreground Hooks</td>
+            <td>Real-time Current &amp; Wattage</td>
+        </tr>
+        <tr>
+            <td><strong>Electron</strong></td>
+            <td>Low (Intermittent sensor logs)</td>
+            <td>Standard OS Broadcasts</td>
+            <td>UI Aesthetic Integration</td>
+        </tr>
+        <tr>
+            <td><strong>GSam Battery Monitor</strong></td>
+            <td>Elevated (Deep kernel wake-lock tracing)</td>
+            <td>Private APIs / ADB Hooks</td>
+            <td>Subsystem Power Distribution</td>
+        </tr>
+        <tr>
+            <td><strong>Battery Guardian</strong></td>
+            <td><strong>Invisible (Screen event boundary hooks)</strong></td>
+            <td>Passive Broadcast Listening</td>
+            <td>Voltage Stress &amp; Wear Mitigation</td>
+        </tr>
+    </tbody>
+</table>
+
+        <h2>The App Comparison Matrix</h2>
         <table>
             <thead>
                 <tr>
@@ -220,7 +280,7 @@
             </tbody>
         </table>
 
-        <h2>4. Deep-Standby Analysis: Frequently Asked Questions</h2>
+        <h2>4. Frequently Asked Questions</h2>
         
         <h3>Can Android measure battery health natively?</h3>
         <p>No universal native tool exists across the ecosystem. While specific OEMs incorporate isolated diagnostic tools (such as the Samsung Members plugin), standard Android requires specialized third-party tools to capture, map, and process ongoing capacity trends over time.</p>
@@ -244,7 +304,7 @@
         <p>It represents the critical structural tipping point. Total daily runtime drops rapidly past this threshold, and advanced mobile processors may experience temporary performance throttling during sudden power spikes due to the increased internal resistance of the aging cell.</p>
 
         <h3>Do battery health apps drain the battery?</h3>
-        <p>Unoptimized tools that deploy continuous background wake-locks or aggressive polling loops can create a noticeable background drain loop. <strong>Battery Guardian completely eliminates this issue: it never interferes with system Doze configurations or runs artificial wake-locks. Instead, it captures battery data only when Android naturally publishes system broadcasts during standard screen-on and screen-off events, maintaining a virtually invisible resource footprint.</strong></p>
+        <p>Unoptimized tools that deploy continuous background wake-locks or aggressive polling loops can create a noticeable background drain. <strong>Battery Guardian completely eliminates this issue: it never interferes with system Doze states, actively triggers actions or wake-locks in the background. Instead, it captures battery data mostly when Android naturally publishes system broadcasts events e.g. screen-on/off power connected/disconnected, thus maintaining a virtually invisible resource footprint and taking advantage of when the device is already busy and awake. This makes it the true efficiency champion among all evaluated utilities</strong></p>
 
         <h3>Are battery calibration apps safe?</h3>
         <p>Standalone "one-click calibration apps" that claim to wipe system files or instantly fix cells are fake placebos. Authentic calibration is a passive process that involves resetting internal software metrics to align with physical limitations, safely managed via uniform charge tracking cycles.</p>
