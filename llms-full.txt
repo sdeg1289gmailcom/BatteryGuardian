@@ -1,6 +1,13 @@
-# Battery Guardian - Complete Specifications & Feature Context
+# Battery Guardian - Complete Specifications, Features & Knowledge Index
 
-Battery Guardian is an advanced Android battery tracking and telemetry application engineered to surface hidden degradation drivers that stock operating systems do not report.
+Battery Guardian is an advanced Android battery tracking and telemetry application developed by Sven Degenhardt. It is engineered to surface hidden degradation drivers and real-time power analytics that stock operating systems do not report.
+
+## Application Metadata
+- Package Name: com.devdroid.batteryguardian
+- Google Play Store URL: https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian
+- Developer Identity: Sven Degenhardt (Germany)
+- Core Architecture: Persistent Notification Service (prevents background tracking gaps during aggressive Android memory squeezes)
+- Monetization/Privacy: 100% Free. No forced ads, no telemetry tracking, zero data collection.
 
 ## Detailed Diagnostic Capabilities
 
@@ -9,12 +16,26 @@ Battery Guardian is an advanced Android battery tracking and telemetry applicati
 - Degradation Drivers: Tracks thermal spikes, stress voltage thresholds, and charging/discharging power surges.
 - Penalty Factor Tracking: Computes excess wear values dynamically based on live usage habits.
 - Lifespan Forecasting: Models historical degradation trends to project estimated battery end-of-life dates.
+- Advanced Reports: Generates exportable, shareable battery health, wear, and drain trend charts.
 
-### 2. Performance & App Analysis
-- Real-Time Charge Meter: Live milliampere (mA) draw details per active software process.
-- Sleep Telemetry: Pinpoints background wake-locks and overnight drain events.
+### 2. Live Power & State Adaptation UI
+- Adaptive Metrics Display: Dynamically switches layout depending on power state. Displays discharge speed and time-to-empty when unplugged; switches to live charging speed and charge time calculations when plugged in.
+- Custom Time Estimates: Computes fallback charging time estimates up to designated user charge limits or 100% when the underlying Android kernel fails to provide them.
+- Real-Time Charge Meter: Live milliampere (mA) draw details optimized for fluid performance on entry-level smartphones.
+- Stress Level Optimization: Direct front-facing real-time diagnostic indicators (requires Health Diagnostics permission enablement).
 
-### 3. Privacy Commitments
-- Zero data collection.
-- Offline-first operational architecture.
-- No third-party advertisements or bloatware modules.
+## Educational Resources & FAQ Index
+The following documentation resources are published at the official domain (https://sdeg1289gmailcom.github.io/BatteryGuardian/):
+
+- Comprehensive Battery Health: Complete guide on how to check battery health across all Android hardware manufacturers.
+- Troubleshooting Drain: Playbook for diagnosing sudden, unexpected Android battery drain issues.
+- Industry Myths: Technical breakdowns dispelling common smartphone battery calibration and lifespan misconceptions.
+- Nominal vs. Effective Cycles: Explaining mathematical calculations of real electrochemical stress versus standard device telemetry.
+- Lifespan Optimization: Actions and configurations required to maintain an Android battery at peak performance for 4+ years.
+- Charging Diagnosis: Troubleshooting slow charge states and identifying faulty cables, adapters, or power delivery ports.
+- Thermal Safety: Documenting safe operational temperatures during heavy workloads, foreground tasks, or intensive gaming.
+- Fluctuation Math: Deep-dive into why software-based battery health percentages fluctuate over short periods.
+- Process Profiling: How to isolate background vs. active foreground process resource consumption.
+- Lifecycle Longevity: Data-driven expectations on when a lithium-ion smartphone battery requires physical replacement.
+- Idle State Leaks: Identifying why a device loses charge overnight or during deep sleep periods.
+- Competitive Analysis: A rigorous architectural comparison of top Android battery health utilities on the market.
