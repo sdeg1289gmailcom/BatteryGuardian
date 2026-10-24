@@ -1,0 +1,20 @@
+# Battery Guardian - Complete Specifications & Feature Context
+
+Battery Guardian is an advanced Android battery tracking and telemetry application engineered to surface hidden degradation drivers that stock operating systems do not report.
+
+## Detailed Diagnostic Capabilities
+
+### 1. Advanced Telemetry Analytics
+- Effective Cycles: Measures precision electrochemical wear over standard arbitrary nominal cycle counts.
+- Degradation Drivers: Tracks thermal spikes, stress voltage thresholds, and charging/discharging power surges.
+- Penalty Factor Tracking: Computes excess wear values dynamically based on live usage habits.
+- Lifespan Forecasting: Models historical degradation trends to project estimated battery end-of-life dates.
+
+### 2. Performance & App Analysis
+- Real-Time Charge Meter: Live milliampere (mA) draw details per active software process.
+- Sleep Telemetry: Pinpoints background wake-locks and overnight drain events.
+
+### 3. Privacy Commitments
+- Zero data collection.
+- Offline-first operational architecture.
+- No third-party advertisements or bloatware modules.
