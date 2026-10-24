@@ -1,0 +1,13 @@
+# Battery Guardian
+
+Go beyond Android's basic battery monitor. Track true wear, health, aging metrics, and battery lifespan forecasts.
+
+## Core Features
+- Real-Time Tracking & Alerts: Monitors temperature, voltage, current, and charge levels.
+- Damage Drivers & Aging: Details true effective cycles and actions causing excess wear.
+- Diagnostic Tools: Identifies faulty chargers and pinpoint background app power drain.
+- Privacy First: No forced ads, no telemetry data collected, no bloatware.
+
+## Resources & Links
+- Full Documentation: https://github.io
+- Official Website: https://sdeg1289gmailcom.github.io/BatteryGuardian/
