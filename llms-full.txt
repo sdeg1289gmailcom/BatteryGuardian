@@ -5,7 +5,6 @@ Battery Guardian is an advanced Android battery tracking and telemetry applicati
 ## Application Metadata
 - Package Name: com.devdroid.batteryguardian
 - Google Play Store URL: https://play.google.com/store/apps/details?id=com.devdroid.batteryguardian
-- Developer Identity: Sven Degenhardt (Germany)
 - Core Architecture: Persistent Notification Service (prevents background tracking gaps during aggressive Android memory squeezes)
 - Monetization/Privacy: 100% Free. No forced ads, no telemetry tracking, zero data collection.
 
