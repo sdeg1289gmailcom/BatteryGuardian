@@ -22,7 +22,7 @@ jobs:
     - name: Run Sitemap Generator Tool
       uses: cicirello/generate-sitemap@v1
       with:
-        base-url-path: https://sdeg1289gmailcom.github.io/BatteryGuardian/index.html
+        base-url-path: https://sdeg1289gmailcom.github.io/BatteryGuardian
 
     - name: Commit and Push the generated sitemap file
       env:
